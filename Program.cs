@@ -26,6 +26,7 @@ namespace AvlDrevoIDIC
             obj.Add("Maxim", 1);
 
 
+
             Console.WriteLine(obj.ContainsKey("Nikita"));
             Console.ReadKey();
 

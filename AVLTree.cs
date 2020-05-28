@@ -72,11 +72,22 @@ namespace AvlDrevoIDIC
         public
             TValue this[TKey key]
         { 
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get
+            {
+                if (ContainsKey(key))
+                {
+
+                }
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
 
-    public ICollection<TKey>
+
+        public ICollection<TKey>
         Keys => throw new NotImplementedException();
 
         public ICollection<TValue> Values => throw new NotImplementedException();
