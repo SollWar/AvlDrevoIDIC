@@ -1,0 +1,6 @@
+C:\Users\Sollw\source\repos\AvlDrevoIDIC\bin\Debug\AvlDrevoIDIC.exe.config
+C:\Users\Sollw\source\repos\AvlDrevoIDIC\bin\Debug\AvlDrevoIDIC.exe
+C:\Users\Sollw\source\repos\AvlDrevoIDIC\bin\Debug\AvlDrevoIDIC.pdb
+C:\Users\Sollw\source\repos\AvlDrevoIDIC\obj\Debug\AvlDrevoIDIC.csprojAssemblyReference.cache
+C:\Users\Sollw\source\repos\AvlDrevoIDIC\obj\Debug\AvlDrevoIDIC.exe
+C:\Users\Sollw\source\repos\AvlDrevoIDIC\obj\Debug\AvlDrevoIDIC.pdb
