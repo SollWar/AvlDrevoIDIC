@@ -77,13 +77,14 @@ namespace AvlDrevoIDIC
                 if (TryGetValue(key, out TValue value))
                     return trygetvalue(root, key);
                 return default;
-                //throw new NotImplementedException();
             }
             set
             {
-                KeyValuePair<TKey, TValue> item = new KeyValuePair<TKey, TValue>(key, value);
-                Add(item);
-                //throw new NotImplementedException();
+                if (ContainsKey(key))
+                {
+                    KeyValuePair<TKey, TValue> item = new KeyValuePair<TKey, TValue>(key, value);
+                    Add(item);
+                }
             }
         }
 
@@ -121,7 +122,6 @@ namespace AvlDrevoIDIC
         public void Add(KeyValuePair<TKey, TValue> item)
         {
             add(root, item);
-            //throw new NotImplementedException();
         }
 
 
