@@ -27,12 +27,13 @@ namespace AvlDrevoIDIC
             obj.Add("Nikita5", 2);
             obj.Add("Nikita4", 10);
             obj.Add("Nikita3", 4);
-            obj.Add("Vyacheslav2", 5);
+            obj.Add("Vyacheslav2", 23);
 
-            //Console.WriteLine(obj.TryGetValue("Nikita", out int value));
+            if (obj.TryGetValue("Vyacheslav2", out int value))
+                Console.WriteLine(value);
 
             //obj.Remove("Vyacheslav");
-            //Console.WriteLine(obj.test("Maxim"));
+            //Console.WriteLine(obj.test("Vyacheslav2"));
 
             obj.Print();
             Console.WriteLine(obj.ContainsKey("Nikita4"));

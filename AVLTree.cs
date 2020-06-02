@@ -191,18 +191,30 @@ namespace AvlDrevoIDIC
             return false;
         }
 
+        public TValue test(TKey x)
+        {
+            return trygetvalue(root, x);
+        }
+
+        public
+            bool TryGetValue(TKey key, out TValue value)
+        {
+            value = trygetvalue(root, key);
+            return contains(root, key);
+            //throw new NotImplementedException();
+        }
+
         private TValue trygetvalue(Node n, TKey x)
         {
-            TValue result = default;
             if (comparer.Compare(x, n.key) == 0)
-                result = n.value;
-            else if (comparer.Compare(x, n.key) > 0)
+                return n.value;
+            if (comparer.Compare(x, n.key) < 0)
+                if (n.left != null)
+                    return trygetvalue(n.left, x);
+            if (comparer.Compare(x, n.key) > 0)
                 if (n.right != null)
-                    result = trygetvalue(n.right, x);
-            else if (comparer.Compare(x, n.key) < 0)
-                    if (n.left != null)
-                        result = trygetvalue(n.right, x);
-            return result;
+                    return trygetvalue(n.right, x);
+            return default;
         }
 
         private Node remove(Node p, TKey x)
@@ -271,16 +283,6 @@ namespace AvlDrevoIDIC
             throw new NotImplementedException();
         }
 
-        public TValue test(TKey key)
-        {
-            return trygetvalue(root, key);
-        }
-
-        public
-            bool TryGetValue(TKey key, out TValue value)
-        {
-            throw new NotImplementedException();
-        }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
