@@ -74,15 +74,16 @@ namespace AvlDrevoIDIC
         { 
             get
             {
-                if (ContainsKey(key))
-                {
-
-                }
-                throw new NotImplementedException();
+                if (TryGetValue(key, out TValue value))
+                    return trygetvalue(root, key);
+                return default;
+                //throw new NotImplementedException();
             }
             set
             {
-                throw new NotImplementedException();
+                KeyValuePair<TKey, TValue> item = new KeyValuePair<TKey, TValue>(key, value);
+                Add(item);
+                //throw new NotImplementedException();
             }
         }
 
@@ -119,8 +120,10 @@ namespace AvlDrevoIDIC
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            throw new NotImplementedException();
+            add(root, item);
+            //throw new NotImplementedException();
         }
+
 
         public void Clear()
         {
@@ -191,9 +194,16 @@ namespace AvlDrevoIDIC
             return false;
         }
 
-        public TValue test(TKey x)
+        private void add(Node n, KeyValuePair<TKey, TValue> item)
         {
-            return trygetvalue(root, x);
+            if (comparer.Compare(item.Key, n.key) == 0)
+                n.value = item.Value;
+            if (comparer.Compare(item.Key, n.key) < 0)
+                if (n.left != null)
+                    add(n.left, item);
+            if (comparer.Compare(item.Key, n.key) > 0)
+                if (n.right != null)
+                    add(n.right, item);
         }
 
         public
@@ -201,7 +211,6 @@ namespace AvlDrevoIDIC
         {
             value = trygetvalue(root, key);
             return contains(root, key);
-            //throw new NotImplementedException();
         }
 
         private TValue trygetvalue(Node n, TKey x)

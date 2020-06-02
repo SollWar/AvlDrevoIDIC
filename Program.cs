@@ -28,17 +28,19 @@ namespace AvlDrevoIDIC
             obj.Add("Nikita4", 10);
             obj.Add("Nikita3", 4);
             obj.Add("Vyacheslav2", 23);
+            obj.Add("Vyacheslav3", 11);
 
-            if (obj.TryGetValue("Vyacheslav2", out int value))
-                Console.WriteLine(value);
-
-            //obj.Remove("Vyacheslav");
-            //Console.WriteLine(obj.test("Vyacheslav2"));
-
-            obj.Print();
+            //if (obj.TryGetValue("Vyacheslav2", out int value))
+            //    Console.WriteLine(value);
             Console.WriteLine(obj.ContainsKey("Nikita4"));
-            Console.ReadKey();
-            
+            Console.WriteLine(obj["Nikita4"]);
+
+            obj["Nikita4"] = 33;
+
+            Console.WriteLine(obj["Nikita4"]);
+
+            //obj.Print();
+
             /*
             string str = "";
             foreach (var i in input_text)
@@ -60,6 +62,7 @@ namespace AvlDrevoIDIC
             // foreach(var i in obj)
             //  Console.WriteLine(i.Key + " " + i.Value);
             //Console.WriteLine("about " + obj["about"]);
+            Console.ReadKey();
         }
     }
 }
