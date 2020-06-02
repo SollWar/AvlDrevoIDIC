@@ -177,18 +177,31 @@ namespace AvlDrevoIDIC
             return t;
         }
 
+
         private bool contains(Node n, TKey x)
         {
-            bool result = false;
-
             if (comparer.Compare(x, n.key) == 0)
-                result = true;
+                return true;
+            if (comparer.Compare(x, n.key) < 0)
+                if (n.left != null)
+                    return contains(n.left, x);
+            if (comparer.Compare(x, n.key) > 0)
+                if (n.right != null)
+                    return contains(n.right, x);
+            return false;
+        }
+
+        private TValue trygetvalue(Node n, TKey x)
+        {
+            TValue result = default;
+            if (comparer.Compare(x, n.key) == 0)
+                result = n.value;
             else if (comparer.Compare(x, n.key) > 0)
                 if (n.right != null)
-                    result = contains(n.right, x);
+                    result = trygetvalue(n.right, x);
             else if (comparer.Compare(x, n.key) < 0)
-                if (n.left != null)
-                    result = contains(n.right, x);
+                    if (n.left != null)
+                        result = trygetvalue(n.right, x);
             return result;
         }
 
@@ -258,6 +271,11 @@ namespace AvlDrevoIDIC
             throw new NotImplementedException();
         }
 
+        public TValue test(TKey key)
+        {
+            return trygetvalue(root, key);
+        }
+
         public
             bool TryGetValue(TKey key, out TValue value)
         {
@@ -291,7 +309,7 @@ namespace AvlDrevoIDIC
             y.height = Math.Max(height(y.left), height(y.right)) + 1;
             return y;
         }
-        private
+        public
             void Print()
         {
             print(root, 0);

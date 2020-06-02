@@ -22,14 +22,22 @@ namespace AvlDrevoIDIC
             // SortedDictionary Dictionary AVLTree
             var obj = new AVLTree<string, int>();
 
-            obj.Add("Nikita", 1);
-            obj.Add("Maxim", 1);
+            obj.Add("Vyacheslav", 5);
+            obj.Add("Ruslan", 1);
+            obj.Add("Nikita5", 2);
+            obj.Add("Nikita4", 10);
+            obj.Add("Nikita3", 4);
+            obj.Add("Vyacheslav2", 5);
 
+            //Console.WriteLine(obj.TryGetValue("Nikita", out int value));
 
+            //obj.Remove("Vyacheslav");
+            //Console.WriteLine(obj.test("Maxim"));
 
-            Console.WriteLine(obj.ContainsKey("Nikita"));
+            obj.Print();
+            Console.WriteLine(obj.ContainsKey("Nikita4"));
             Console.ReadKey();
-
+            
             /*
             string str = "";
             foreach (var i in input_text)
